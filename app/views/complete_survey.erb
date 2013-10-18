@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Why dontcha go ahead an' take a survey, b*+@#!</h1>
+  
+  <h1><%= @survey.name %></h1>
+  <form action="/complete_survey" method="post">
+    <ol>
+      <% @survey.questions.each do |question| %>
+        <li><%= question.content %></li>
+        <ul>
+        <h4>Here yo choices!</h4>
+          <% question.responses.each do |response| %>
+            <li><%= response.content %><input type="radio" name="<% question.id %>" value="<%= response.content %>"></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </ol>
+  </form>
+</div>
