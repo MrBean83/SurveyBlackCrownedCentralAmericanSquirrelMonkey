@@ -3,17 +3,12 @@
 
   <h1><%= @survey.name %></h1>
   <form action="/complete_survey" method="post">
-    <ol>
       <% @survey.questions.each do |question| %>
-        <li><%= question.content %></li>
-        <ul>
-        <h4>Here yo choices!</h4>
+        Question:<%= question.content %>
           <% question.responses.each do |response| %>
-            <li><%= response.content %><input type="radio" name="<% question.id %>" value="<%= response.content %>"></li>
+            <%= response.content %><input type="radio" name="<% question.id %>" value="<%= response.content %>">
             <% end %>
-          </ul>
         <% end %>
-      </ol>
     <input type="submit" value="submit">
   </form>
 </div>

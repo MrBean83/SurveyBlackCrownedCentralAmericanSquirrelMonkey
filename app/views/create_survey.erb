@@ -1,15 +1,18 @@
 <div class="container">
-  <h1>Why dontcha go ahead an' create a survey, b*+@#!</h1>
+  <h1>Create your survey</h1>
 
   <form action="/create_survey" method="post">
-    <label>Name Your Survey: <input type="text" name="survey[name]" placeholder="Whatcho' survey called?!"><br>
-    <label>Ask a Question: <input type="text" name="question[content]" placeholder="...got a question?"</label><br>
-    <label>Give some Choices: <input type="text" name="response[content1]" placeholder="Where yo' answers!?"><br>
-    <input type="text" name="response[content2]" placeholder="Where your answers!?"></label><br>
-    <input type="text" name="response[content3]" placeholder="Where your answers!?"></label><br>
-    <input type="text" name="response[content4]" placeholder="Where your answers!?"></label><br>
-    </label>
-    <input type="submit" value="send yo $#!+!">
-  </form>
-
+    <div class="new_question">
+      <label>Name Your Survey: </label><input type="text" name="survey_name" ><br>
+      <label>Ask a Question: </label><input type="text" name="question_content" ><br>
+      <label>Give some Choices: </label><br>
+      <div class="responses">
+        <input type="text" name="response1" ><br>
+        <input type="text" name="response2"><br>
+        <input type="text" name="response3"><br>
+        <input type="text" name="response4"><br>
+      </div>
+    </div>
+    <input type="submit" value="create question">
+    </form>
 </div>
