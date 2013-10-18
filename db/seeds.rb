@@ -7,7 +7,7 @@ response_2 = Response.create(question_id: question.id, survey_id: survey.id, con
 response_3 = Response.create(question_id: question.id, survey_id: survey.id, content: "Maybe")
 response_4 = Response.create(question_id: question.id, survey_id: survey.id, content: "So")
 completed_survey = Completedsurvey.create(user_id: questioneer.id, survey_id: survey.id )
-user_response = Userresponse.create(user_id: questioneer.id, response_id: response.id )
+user_response = Userresponse.create(user_id: questioneer.id, response_id: response_1.id )
 
 
 survey2 = Survey.create(user_id: questioneer.id, name: "Cats")
