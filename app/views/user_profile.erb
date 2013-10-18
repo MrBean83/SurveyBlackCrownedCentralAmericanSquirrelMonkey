@@ -4,11 +4,11 @@
 <!-- SURVEYS CREATED BY THE USER -->
 <h3>Survey's you've created</h3>
 <% @surveys = Survey.where(user_id: session[:user_id]) %>
-<%= erb :_surveys %>
+<%= erb :_surveys_created %>
 
 <!-- TAKEN SURVEYS -->
 <h3>Survey's you've taken</h3>
 <% @surveys = User.find(session[:user_id]).surveys %>
-<%= erb :_surveys %>
+<%= erb :_surveys_taken %>
 
 <!-- SURVEYS TO BE COMPLETED -->

@@ -8,7 +8,8 @@ get '/sign_up' do
 end
 
 post '/sign_up' do
-  @user = User.new(params[:user])
+  @user = User.create(params[:user])
+  session[:user_id] = @user.id
   redirect '/profile'
 end
 
