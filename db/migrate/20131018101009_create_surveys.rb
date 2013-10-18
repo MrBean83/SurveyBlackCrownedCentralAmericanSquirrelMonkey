@@ -1,6 +1,6 @@
 class CreateSurveys < ActiveRecord::Migration
   def change
-    create_table do |t|
+    create_table :surveys do |t|
       t.integer :user_id
       t.string :name
 
