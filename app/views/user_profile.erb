@@ -1,0 +1,12 @@
+<!-- LINK TO CREATE SURVEY -->
+<a href="/create_new_survey">New Survey</a>
+
+<!-- SURVEYS CREATED BY THE USER -->
+<% @surveys = Survey.where(user_id: session[:user_id]) %>
+<%= erb :_surveys %>
+
+<!-- TAKEN SURVEYS -->
+<% @surveys = User.find(sesion[:user_id]).surveys %>
+<%= erb :_surveys %>
+
+<!-- SURVEYS TO BE COMPLETED -->
