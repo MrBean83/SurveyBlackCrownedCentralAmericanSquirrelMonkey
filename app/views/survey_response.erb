@@ -7,16 +7,14 @@ Question <%=index+1%> of total <%=@questions.length%><br>
 <b><%= question.content %></b>
 <br><br>
   <% question.responses.each_with_index do |response, response_index| %>
-  
+  <%= response_index+1 %>.&nbsp;
+  <% if @user_responses.include?(response) %>
+    <b><%=response.content%></b>
+  <% else %>
+    <%=response.content%>
+  <%end%>
+  <br>
+  <%end%>
+  <br><br>
 </div>
-Question 1 of total
-  Possible Answer
-  Possible Answer
-  etc.
-
-Question 2 of total
-  Possible Answer
-  <bold>The answer you selected</bold>
-  etc.
-
-Question etc.
+<% end %>
