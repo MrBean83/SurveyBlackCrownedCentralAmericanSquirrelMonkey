@@ -1,6 +1,6 @@
 class CreateCompletedSurveys < ActiveRecord::Migration
   def change
-    create_table :completed_surveys do |t|
+    create_table :completedsurveys do |t|
       t.integer :user_id
       t.integer :survey_id
 
