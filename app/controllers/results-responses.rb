@@ -4,7 +4,7 @@ get '/surveyresults/:survey_id' do
   erb :survey_results
 end
 
-get '/surveyresponse/:survey_id' do
+get '/surveystaken/:survey_id' do
   @user = User.find(session[:user_id])
   @survey = Survey.find(params[:survey_id])
   @questions = @survey.questions
