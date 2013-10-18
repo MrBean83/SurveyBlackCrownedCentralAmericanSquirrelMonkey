@@ -1,0 +1,22 @@
+<h2> Your response for: <%=@survey.name%> </h2>
+
+<% @questions.each_with_index do |question, index| %>
+  
+<div class="question">  
+Question <%=index+1%> of total <%=@questions.length%><br>
+<b><%= question.content %></b>
+<br><br>
+  <% question.responses.each_with_index do |response, response_index| %>
+  
+</div>
+Question 1 of total
+  Possible Answer
+  Possible Answer
+  etc.
+
+Question 2 of total
+  Possible Answer
+  <bold>The answer you selected</bold>
+  etc.
+
+Question etc.
