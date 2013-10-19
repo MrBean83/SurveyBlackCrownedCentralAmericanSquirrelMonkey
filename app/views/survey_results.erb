@@ -1,3 +1,4 @@
+<div class="container">
 <h2> Your results for: <%=@survey.name%> </h2>
 
 <% @questions.each_with_index do |question, index| %>
@@ -13,3 +14,4 @@ Question <%=index+1%> of total <%=@questions.length%><br>
   <br><br>
 </div>
 <% end %>
+</div>
