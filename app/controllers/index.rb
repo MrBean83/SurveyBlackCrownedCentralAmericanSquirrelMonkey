@@ -21,14 +21,18 @@ get '/create_survey' do
 end
 
 post '/create_survey' do
-  params.inspect
-  # Survey.create(name: params[:survey_name], user_id: session[:user_id])
-  # BETTER WAY TO CREATE SURVEY
-  # Create survey (user_id, name)
-  # for each question
-  # create the question (survey_id, content)
-  # create the responses (question_id, survey_id, content)
-  # redirect '/profile'
+  @survey = Survey.create(name: params[:survey_name], user_id: session[:user_id])
+  params.each do |question, content_hash|
+    content_hash.each do |key, value|
+      if key == "question"
+        @question = Question.create(survey_id: @survey.id, content: value)
+      else
+        Response.create(question_id: @question.id, survey_id: @survey.id, content: value)
+      end
+    end
+  end
+  
+  redirect '/profile'
 end
 
 get '/complete_survey/:survey_id' do
