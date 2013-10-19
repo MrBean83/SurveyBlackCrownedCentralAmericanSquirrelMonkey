@@ -21,7 +21,13 @@ get '/create_survey' do
 end
 
 post '/create_survey' do
+  Survey.create(name: params[:survey_name])
+  
   # BETTER WAY TO CREATE SURVEY
+  # Create survey (user_id, name)
+  # for each question
+  # create the question (survey_id, content)
+  # create the responses (question_id, survey_id, content)
   redirect '/profile'
 end
 

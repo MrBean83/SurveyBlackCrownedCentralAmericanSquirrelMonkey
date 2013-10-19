@@ -2,17 +2,21 @@
   <h1>Create your survey</h1>
 
   <form action="/create_survey" method="post">
-    <div class="new_question">
-      <label>Name Your Survey: </label><input type="text" name="survey_name" ><br>
-      <label>Ask a Question: </label><input type="text" name="question_content" ><br>
-      <label>Give some Choices: </label><br>
+      <label>Name Your Survey: </label><input type="text" name="survey_name" ><br><br>
+      <div class="question">
+      <label>Ask a Question: </label><input type="text" name="questions[1]" ><br><br>
+      <label>Give some Choices: </label>
       <div class="responses">
         <input type="text" name="response1" ><br>
-        <input type="text" name="response2"><br>
-        <input type="text" name="response3"><br>
-        <input type="text" name="response4"><br>
-      </div>
+      </div><br><br>
     </div>
-    <input type="submit" value="create question">
+    <div id="ADD_HERE"></div>
+    <input type="button" id="add_question" value="Add a question">
+    <input type="button" id="remove_question" value="Remove the last question">
+    <input type="submit" value="Generate Survey">
     </form>
 </div>
+
+<script>
+
+</script>
