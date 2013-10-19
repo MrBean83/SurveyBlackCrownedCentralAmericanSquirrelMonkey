@@ -21,14 +21,14 @@ get '/create_survey' do
 end
 
 post '/create_survey' do
-  binding.pry
-  Survey.create(name: params[:survey_name], user_id: session[:user_id])
+  params.inspect
+  # Survey.create(name: params[:survey_name], user_id: session[:user_id])
   # BETTER WAY TO CREATE SURVEY
   # Create survey (user_id, name)
   # for each question
   # create the question (survey_id, content)
   # create the responses (question_id, survey_id, content)
-  redirect '/profile'
+  # redirect '/profile'
 end
 
 get '/complete_survey/:survey_id' do
@@ -39,10 +39,10 @@ end
 post '/complete_survey/:survey_id' do
   params[:q_r].each do |qr|
     response = qr[1]
-  user_response = Userresponse.create(user_id: session[:user_id],
-                                                              response_id: response)
-  completed_survey = Completedsurvey.create(user_id: session[:user_id],
-                                                                          survey_id: params[:survey_id])
-  redirect "/surveystaken/#{params[:survey_id]}"
-end
+    user_response = Userresponse.create(user_id: session[:user_id],
+      response_id: response)
+    completed_survey = Completedsurvey.create(user_id: session[:user_id],
+      survey_id: params[:survey_id])
+    redirect "/surveystaken/#{params[:survey_id]}"
+  end
 end
