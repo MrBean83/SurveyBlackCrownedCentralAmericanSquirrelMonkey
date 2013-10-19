@@ -23,6 +23,7 @@ end
 post '/create_survey' do
   @survey = Survey.create(name: params[:survey_name], user_id: session[:user_id])
   params.each do |question, content_hash|
+    if content_hash.class == Hash
     content_hash.each do |key, value|
       if key == "question"
         @question = Question.create(survey_id: @survey.id, content: value)
@@ -31,7 +32,8 @@ post '/create_survey' do
       end
     end
   end
-  
+  end
+
   redirect '/profile'
 end
 
