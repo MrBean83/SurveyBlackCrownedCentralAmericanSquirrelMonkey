@@ -22,7 +22,6 @@ end
 
 post '/create_survey' do
   Survey.create(name: params[:survey_name])
-  
   # BETTER WAY TO CREATE SURVEY
   # Create survey (user_id, name)
   # for each question
@@ -31,7 +30,18 @@ post '/create_survey' do
   redirect '/profile'
 end
 
-get '/complete_survey/:id' do
-  @survey = Survey.find(params[:id])
+get '/complete_survey/:survey_id' do
+  @survey = Survey.find(params[:survey_id])
   erb :complete_survey
+end
+
+post '/complete_survey/:survey_id' do
+  params[:q_r].each do |qr|
+    response = qr[1]
+  user_response = Userresponse.create(user_id: session[:user_id],
+                                                              response_id: response)
+  completed_survey = Completedsurvey.create(user_id: session[:user_id],
+                                                                          survey_id: params[:survey_id])
+  redirect "/surveystaken/#{params[:survey_id]}"
+end
 end
