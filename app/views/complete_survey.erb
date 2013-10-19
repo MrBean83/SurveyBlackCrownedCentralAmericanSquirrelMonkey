@@ -2,12 +2,13 @@
   <h1>Fill out the survey</h1>
 
   <h1><%= @survey.name %></h1>
+    <form action="/complete_survey/<%= @survey.id %>" method="post">
       <% @survey.questions.each do |question| %>
-        Question:<%= question.content %>
-         <form action="/complete_survey/<%= @survey.id %>" method="post">
+        Question: <%= question.content %><br>
           <% question.responses.each do |response| %>
             <br><input type="radio" name="q_r[<%= question.id %>]" value="<%= response.id %>"><%= response.content %>
             <% end %>
+            <br><br>
         <% end %>
         <br>
     <input type="submit" value="submit">
