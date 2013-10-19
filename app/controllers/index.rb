@@ -21,7 +21,8 @@ get '/create_survey' do
 end
 
 post '/create_survey' do
-  Survey.create(name: params[:survey_name])
+  binding.pry
+  Survey.create(name: params[:survey_name], user_id: session[:user_id])
   # BETTER WAY TO CREATE SURVEY
   # Create survey (user_id, name)
   # for each question
