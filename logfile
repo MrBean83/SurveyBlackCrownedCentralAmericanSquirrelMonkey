@@ -1,0 +1,6 @@
+LOG:  database system was shut down at 2013-10-20 10:37:21 CDT
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+ERROR:  database "SurveyBlackCrownedCentralAmericanSquirrelMonkey_development" does not exist
+STATEMENT:  DROP DATABASE "SurveyBlackCrownedCentralAmericanSquirrelMonkey_development";
+	

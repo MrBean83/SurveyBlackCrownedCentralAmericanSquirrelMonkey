@@ -1,5 +1,9 @@
 get '/' do
-  erb :index
+  if session[:user_id]
+    redirect to '/profile'
+  else
+    erb :index
+  end
 end
 
 get '/sign_up' do
@@ -50,6 +54,6 @@ post '/complete_survey/:survey_id' do
     completed_survey = Completedsurvey.create(user_id: session[:user_id],
       survey_id: params[:survey_id])
   end
-    redirect "/surveystaken/#{params[:survey_id]}"
-  end
+  redirect "/surveystaken/#{params[:survey_id]}"
+end
 
