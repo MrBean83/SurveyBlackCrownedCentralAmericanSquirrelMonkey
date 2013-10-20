@@ -13,4 +13,7 @@
 <%= erb :_surveys_taken %>
 
 <!-- SURVEYS TO BE COMPLETED -->
+<h3>TAKE A NEW SURVEY</h3>
+<% @surveys = incomplete_surveys %>
+<%= erb :_surveys_take %>
 </div>
