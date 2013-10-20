@@ -1,6 +1,6 @@
 class Response < ActiveRecord::Base
   # validations
-
+  validates :content, presence: true
   # associations
   belongs_to :question
   belongs_to :surveys

@@ -1,6 +1,6 @@
 class Survey < ActiveRecord::Base
   # validations
-
+  validates :name, presence: true
   # associations
   has_many :questions
   has_many :responses
