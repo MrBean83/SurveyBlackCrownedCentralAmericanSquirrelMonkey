@@ -1,19 +1,32 @@
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
 <div class="container">
-<h2> Your results for: <%=@survey.name%> </h2>
+  <h2> Your results for: <%=@survey.name%> </h2>
 
-<% @questions.each_with_index do |question, index| %>
+  <% @questions.each_with_index do |question, index| %>
 
-<div class="question">
-Question <%=index+1%> of total <%=@questions.length%><br>
-<b><%= question.content %></b>
-<br><br>
-  <% question.responses.each_with_index do |response, response_index| %>
-  <%= response_index+1 %>.&nbsp;<%=response.content%> <%=Userresponse.where(response_id: response.id).length %>
-  <br>
-  <%end%>
-  <br><br>
+  <div class="question">
+    Question <%=index+1%> of total <%=@questions.length%><br>
+    <b><%= question.content %></b>
+    <br>
+    <% question.responses.each do |response| %>
+    <div class="bar_chart<%=question.id%>_<%= response.id %>"><%= response.content %></div>
+
+    <script>
+    var chart = d3.select(".bar_chart<%=question.id%>_<%= response.id %>").append("div")
+    .attr("class", "chart");
+    chart.selectAll("div")
+    .data(<%= [Userresponse.where(response_id: response.id).length]  %>)
+    .enter().append("div")
+    .style("width", function(d) { return 10 + (d * 30) + "px"; })
+    .text(function(d) { return d; });
+    </script>
+
+    <%end%>
+    <br><br>
+  </div>
+  <% end %>
+
+
+  <a href="/profile">home</a>
 </div>
-<% end %>
-</div>
-
-<a href="/profile">home</a>
