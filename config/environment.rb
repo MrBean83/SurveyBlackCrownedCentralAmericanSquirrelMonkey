@@ -32,3 +32,12 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 require 'pry'
+
+# Image upload and management
+
+set :root, APP_ROOT
+
+Dir[APP_ROOT.join('app', 'uploaders', '*.rb')].each { |file| require file }
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
+require 'mini_magick'

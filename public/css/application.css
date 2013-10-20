@@ -25,3 +25,9 @@ body{
  margin: 1px;
  color: white;
 }
+
+img.survey_image {
+  position: fixed;
+  right: 195px;
+  top: 43px;
+}

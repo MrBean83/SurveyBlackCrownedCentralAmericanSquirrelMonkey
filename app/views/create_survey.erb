@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Create your survey</h1>
 
-  <form action="/create_survey" method="post">
+  <form action="/create_survey" method="post" enctype="multipart/form-data">
       <label>Name Your  Survey: </label><input type="text" name="survey_name" ><br><br>
       <div class="question">
       <label>Ask a Question: </label><input type="text" name="question1[question]" ><br><br>
@@ -13,6 +13,10 @@
       <br><br>
     </div>
     <div id="ADD_HERE"></div>
+    <br>
+    Include a picture (optional):
+    <input type="file" name="image">
+    <br><br>
     <input type="button" id="add_question" value="Add a question">
     <input type="button" id="remove_question" value="Remove the last question">
     <input type="submit" value="Generate Survey">
