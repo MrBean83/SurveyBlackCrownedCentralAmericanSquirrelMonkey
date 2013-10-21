@@ -6,4 +6,5 @@ class Survey < ActiveRecord::Base
   has_many :responses
   has_many :completedsurvey
   has_many :users, through: :completedsurvey
+  has_one :photo
 end

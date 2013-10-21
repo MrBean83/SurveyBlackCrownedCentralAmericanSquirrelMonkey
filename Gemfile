@@ -23,3 +23,7 @@ group :test do
 end
 
 gem 'pry'
+
+# Image upload and management
+gem 'carrierwave'
+gem 'mini_magick'

@@ -2,7 +2,10 @@
 
 <div class="container">
   <h2> Your results for: <%=@survey.name%> </h2>
-
+  <% if @photo %>
+  <br><br>
+  <img class="survey_image" src='<%=@photo.filename%>'>
+  <% end %>
   <% @questions.each_with_index do |question, index| %>
 
   <div class="question">
