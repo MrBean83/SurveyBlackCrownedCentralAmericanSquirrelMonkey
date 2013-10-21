@@ -1,3 +1,6 @@
 <div class="users_responses">
   <a href="/surveystaken/<%= @survey.id %>" ><%=@survey.name%></a>
+  <%if @survey.photo%>
+    <img src='<%=@survey.photo.minify%>'>
+  <% end %>
 </div>
